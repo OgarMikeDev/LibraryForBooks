@@ -13,6 +13,14 @@ flex-direction: column;
 padding: 20px;
 }
 
+button {
+padding: 10px;
+border: 1px solid transparent;
+border-radius: 10px;
+background-color: white;
+cursor: pointer;
+}
+
 body {
 margin: 0px;
 padding: 0px;
@@ -45,15 +53,7 @@ margin-bottom: 0px;
 }
 
 .show-form-add-book {
-padding: 10px;
-border: 1px solid transparent;
-border-radius: 10px;
-background-color: white;
 margin-top: 10px;
-}
-
-button {
-cursor: pointer;
 }
 
 footer {
@@ -73,7 +73,7 @@ margin: 20px;
         <label for="text">Year of issue:</label>
         <input type="date" id="date" placeholder="1820">
         <label for="text">Save book:</label>
-        <button value="save book" onclick="save-book()"></button>
+        <button onclick="save-book()">Save book</button>
     </form>
 </div>
 <header></header>
