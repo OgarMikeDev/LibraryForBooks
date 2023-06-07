@@ -7,6 +7,12 @@ font-family: Arial, Helvetica, sans-serif;
 font-size: 30px;
 }
 
+form {
+display: flex;
+flex-direction: column;
+padding: 20px;
+}
+
 body {
 margin: 0px;
 padding: 0px;
@@ -42,9 +48,12 @@ margin-bottom: 0px;
 padding: 10px;
 border: 1px solid transparent;
 border-radius: 10px;
-cursor: pointer;
 background-color: white;
 margin-top: 10px;
+}
+
+button {
+cursor: pointer;
 }
 
 footer {
@@ -57,6 +66,16 @@ margin: 20px;
 </style>
 </head>
 <body>
+<div class="book-form" id="book-form">
+    <form>
+        <label for="text">Name book:</label>
+        <input type="text" id="text" placeholder="War and Peace">
+        <label for="text">Year of issue:</label>
+        <input type="date" id="date" placeholder="1820">
+        <label for="text">Save book:</label>
+        <input type="button" class="button_form_registration_user" value="Save book" onclick="save-book()">
+    </form>
+</div>
 <header></header>
 <section>
     <span>Library for books</span>
