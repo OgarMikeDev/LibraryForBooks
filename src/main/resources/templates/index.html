@@ -8,7 +8,7 @@
         <label for="text">Name book:</label>
         <input type="text" id="text" placeholder="War and Peace">
         <label for="text">Year of issue:</label>
-        <input type="date" id="date" placeholder="1820">
+        <input type="number" id="date" placeholder="1820">
         <label for="text">Save book:</label>
         <button id="save-book">Save book</button>
     </form>
@@ -23,143 +23,8 @@
     </div>
 </section>
 <footer></footer>
-<!--<link rel="stylesheet" type="text/css" href="C:/Library/src/main/resources/static/css/style.css">-->
-<!--<script src="resources\\static\\jquery.js"></script>-->
-<!--<script src="resources\\static\\main.js"></script>-->
-<style>
-    * {
-font-family: Arial, Helvetica, sans-serif;
-font-size: 30px;
-}
-
-body {
-margin: 0px;
-padding: 0px;
-background-color: gray;
-display: flex;
-flex-direction: column;
-}
-
-label {
-margin-bottom: 2px;
-}
-
-input {
-margin-bottom: 20px;
-}
-
-.book-form {
-position: fixed;
-background-color: rgb(0 0 0 / 28%);
-width: 100%;
-height: 100%;
-align-items: center;
-justify-content: center;
-border: 1px solid transparent;
-display: none;
-}
-
-form {
-display: flex;
-flex-direction: column;
-padding: 20px;
-background-color: lightgray;
-border-radius: 10px;
-}
-
-button {
-padding: 10px;
-border: 1px solid transparent;
-border-radius: 10px;
-background-color: white;
-cursor: pointer;
-}
-
-header {
-border: 1px solid transparent;
-border-radius: 10px;
-height: 150px;
-background-color: lightgray;
-margin: 20px;
-margin-bottom: 0px;
-}
-
-section {
-border: 1px solid transparent;
-border-radius: 10px;
-height: 600px;
-display: flex;
-flex-direction: column;
-justify-content: center;
-text-align: center;
-align-items: center;
-background-color: lightgray;
-margin: 20px;
-margin-bottom: 0px;
-}
-
-.show-form-add-book {
-margin-top: 10px;
-}
-
-footer {
-border: 1px solid transparent;
-border-radius: 10px;
-height: 200px;
-background-color: lightgray;
-margin: 20px;
-}
-</style>
-<script>
-    $(function() {
-
-  const appendBook = function(data) {
-  var bookCode = "<span>" + data.name + "</span>" +
-              "Year of issue: " + data.year;
-              $("#book-list")
-              .append("<div>" + bookCode + "</div>");
-  };
-
-  //Loading books on load page
-  $.get("/books/", function(response) {
-         for(i in response) {
-             appendBook(response[i]);
-         }
-  });
-
-  //Show adding book form
-  $("#show-form-add-book").click(function() {
-          $("#book-form").css("display", "flex");
-  });
-
-  //Closing adding book form
-  $("#book-form").click(function(event) {
-          if(event === this) {
-          $(this).css("display", "none");
-          }
-  });
-
-  //Adding book
-  $("#save-book").click(function() {
-          var data = $("#book-form form").serialize();
-          $.ajax({
-              method: "POST",
-              url: "/books/",
-              data: data,
-              success: function(response) {
-                  $("#book-form").css("display", "none");
-                  var book = {};
-                  book.id = response.id;
-                  var dataArray = $("#book-form form").serializeArray();
-                  for(i in dataArray) {
-                      book[dataArray[i]["name"]] = dataArray[i]["value"];
-                  }
-                  appendBook(book);
-              }
-          });
-          return false;
-    });
-});
-</script>
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<script src="js/jquery.js"></script>
+<script src="js/main.js"></script>
 </body>
 </html>

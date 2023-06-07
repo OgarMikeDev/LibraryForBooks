@@ -10,16 +10,15 @@ import java.util.List;
 
 @org.springframework.web.bind.annotation.RestController
 public class RestController {
-    @RequestMapping(value = "/books/", method = RequestMethod.POST)
-    public int add(Book book) {
-        Storage.addBook(book);
-        return book.getId();
-    }
 
     @RequestMapping(value = "/books/", method = RequestMethod.GET)
     public List<Book> getBooks() {
         return Storage.getAllBooks();
     }
 
+    @RequestMapping(value = "/books/", method = RequestMethod.POST)
+    public int add(Book book) {
+        return Storage.addBook(book);
+    }
 }
 
