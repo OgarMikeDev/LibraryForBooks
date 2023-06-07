@@ -1,9 +1,10 @@
- $function() {
+$(function() {
 
   const appendBook = function(data) {
   var bookCode = "<span>" + data.name + "</span>" +
               "Year of issue: " + data.year;
-              $("#book-list").append("<div>" + bookCode + "</div>");
+              $("#book-list")
+              .append("<div>" + bookCode + "</div>");
   };
 
   //Loading books on load page
@@ -23,7 +24,7 @@
           if(event === this) {
           $(this).css("display", "none");
           }
-  })
+  });
 
   //Adding book
   $("#save-book").click(function() {
